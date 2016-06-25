@@ -25,7 +25,7 @@ define( function () {
         var nX = ( Math.cos( a ) * ( x - cX ) ) + ( Math.sin( a ) * ( y - cY ) ) + cX;
         var nY = ( Math.cos( a ) * ( y - cY ) ) - ( Math.sin( a ) * ( x - cX ) ) + cY;
 
-        return [ nX, nY ];
+        return { x: nX, y: nY };
     };
 
 });
