@@ -3,7 +3,7 @@ define( function () {
     'use strict';
 
     /*
-        Simple mathmatical 2D rotation in cartesian coordinate space
+        Simple mathematical 2D rotation in cartesian coordinate space
         ---
         Source: http://stackoverflow.com/a/17411276/6512315
 
