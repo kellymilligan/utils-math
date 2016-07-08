@@ -15,6 +15,9 @@ define( function () {
 
         inDegrees     bool        optional - Flag whether angle is passed in as degrees
 
+        --
+        Returns       obj         new x and y coordinates
+
     */
 
     return function (cX, cY, x, y, a, inDegrees) {
