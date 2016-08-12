@@ -4,7 +4,9 @@ define( function () {
 
     /*
 
-        Mix two RGB colours together using averaging
+        Mix RGB colour 2 into RGB colour 1 based on normalised mix amount
+
+        value         num          normalised amount of mix bias
 
         r1            num          Red value of first colour (0-255)
         g1            num          Green value of first colour (0-255)
@@ -19,11 +21,11 @@ define( function () {
 
     */
 
-    return function (r1, g1, b1, r2, g2, b2) {
+    return function (value, r1, g1, b1, r2, g2, b2) {
 
-        var r = ( r1 + r2 ) / 2;
-        var g = ( g1 + g2 ) / 2;
-        var b = ( b1 + b2 ) / 2;
+        var r = parseInt( r2 * value + r1 * ( 1 - value ), 10 );
+        var g = parseInt( g2 * value + g1 * ( 1 - value ), 10 );
+        var b = parseInt( b2 * value + b1 * ( 1 - value ), 10 );
 
         return [ r, g, b ];
     };
