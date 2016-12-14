@@ -1,26 +1,38 @@
 /*
-    Check whether a given point is within a uniform sphere of the given radius
-    Assumes that the origin of the sphere is at [0, 0, 0].
+    Check whether a given point is within a uniform sphere of the given radius.
+    By default assumes a unit sphere with it's origin at [0, 0, 0].
     ---
 
     pX       Num     X coordinate of the point
     pY       Num     Y coordinate of the point
     pZ       Num     Z coordinate of the point
-    r        Num     Radius of the sphere
+
+    r        Num     Optional - Radius of the sphere
+    oX       Num     Optional - X coordinate of the sphere's origin
+    oY       Num     Optional - Y coordinate of the sphere's origin
+    oZ       Num     Optional - Z coordinate of the sphere's origin
 
 */
 
-import distance3d from '../distance_3d';
+import distance3d from './distance_3d';
 
 export default function (
 
+    // Point coordinates
     pX = 0,
     pY = 0,
     pZ = 0,
-    r = 1
+
+    // Sphere radius
+    r = 1,
+
+    // Origin coordinates
+    oX = 0,
+    oY = 0,
+    oZ = 0
 
 ) {
 
-    if ( distance3d( 0, 0, 0, pX, pY, pZ ) <= r ) { return true; }
+    if ( distance3d( oX, oY, oZ, pX, pY, pZ ) <= r ) { return true; }
     return false;
 }
