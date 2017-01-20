@@ -1,14 +1,9 @@
-define( function () {
+/*
+    Return a random unit signed value ( -1 or +1 )
 
-    'use strict';
+*/
 
-    /*
-        Return a random unit signed value ( -1 or +1 )
-    */
+export default function () {
 
-    return function () {
-
-        return ( Math.random() > 0.5 ) ? 1 : -1;
-    };
-
-});
+    return ( Math.random() > 0.5 ) ? 1 : -1;
+}
