@@ -1,13 +1,13 @@
 /*
-    Calculate 3D point coordinates on a sphere
+    Calculate 3D point coordinates on a sphere's surface
     ---
 
-    theta         num       Polar angle in radians
-    phi           num       Azimuthal angle in radians
-    radius        num       Radius of the sphere
+    theta         Number       Polar angle in radians
+    phi           Number       Azimuthal angle in radians
+    radius        Number       Radius of the sphere
 
     --
-    Returns       obj       Vector coordinates of the point
+    Returns       Object       3D vector coordinates of the point
 
 */
 

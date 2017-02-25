@@ -1,38 +1,34 @@
-define( function () {
+/*
+    Return a new 2D point object. Optionally supply default origin coordinates
+    ---
 
-    'use strict';
+    oX           Number      Optional - Initial origin X coordinate
+    oY           Number      Optional - Initial origin Y coordinate
+    oZ           Number      Optional - Initial origin Z coordinate
 
-    /*
-        Return a new 3D point object. Optionally supply default origin coordinates
-        ---
+    --
+    Returns      Object      Object with point origin and current X, Y and Z coordinates
 
-        oX           num      optional - Initial origin X coordinate
-        oY           num      optional - Initial origin Y coordinate
-        oZ           num      optional - Initial origin Z coordinate
+*/
 
-        --
-        Returns      obj      object with point origin and current X, Y, and Z coordinates
+export default function (
 
-    */
+    oX = 0,
+    oY = 0,
+    oZ = 0
 
-    return function (oX, oY, oZ) {
+) {
 
-        oX = oX || 0;
-        oY = oY || 0;
-        oZ = oZ || 0;
+    return {
 
-        return {
+        // Origin coordinates
+        oX: oX,
+        oY: oY,
+        oZ: oZ,
 
-            // Origin coordinates
-            oX: oX,
-            oY: oY,
-            oZ: oZ,
-
-            // Current coordinates
-            x: 0,
-            y: 0,
-            z: 0
-        };
+        // Current coordinates
+        x: 0,
+        y: 0
+        z: 0
     };
-
-});
+}

@@ -1,36 +1,39 @@
-define( function () {
+/*
+    Wrap a positive angle value to be within it's canonical -180 to +180 degree range
+    ---
 
-    'use strict';
+    t             Number       Angle (theta) to wrap
 
-    /*
-        Wrap a positive angle value to be within it's canonical -180 to +180 degree range
-        ---
+    inDegrees     Boolean      Optional - Flag whether angle is passed in as degrees
 
-        t             rad/deg       Angle (theta) to wrap
+    --
+    Returns       Number       Wrapped theta angle in same unit as input
 
-        inDegrees     bool          optional - Flag whether angle is passed in as degrees
+*/
 
-        --
-        Returns       rad           wrapped theta angle in radians
+const TWO_PI = Math.PI * 2;
 
-    */
+export default function (
 
-    return function (t, inDegrees) {
+    t,
 
-        var TWO_PI = Math.PI * 2;
+    inDegrees = false
 
-        // Convert to radians if flagged as degrees
-        if ( inDegrees === true ) { t = t * ( Math.PI / 180 ); }
+) {
 
-        // Range check
-        if ( Math.abs( t ) >= Math.PI ) {
+    // Convert to radians if flagged as degrees
+    if ( inDegrees === true ) { t = t * ( Math.PI / 180 ); }
 
-            var revolutions = parseInt( ( t + Math.PI ) * ( 1 / TWO_PI ), 10 );
+    // Range check
+    if ( Math.abs( t ) >= Math.PI ) {
 
-            t -= revolutions * TWO_PI;
-        }
+        var revolutions = parseInt( ( t + Math.PI ) * ( 1 / TWO_PI ), 10 );
 
-        return t;
-    };
+        t -= revolutions * TWO_PI;
+    }
 
-});
+    // Convert back to degrees if necessary
+    if ( inDegrees === true ) { t *= 180 / Math.PI; }
+
+    return t;
+}

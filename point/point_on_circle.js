@@ -3,12 +3,15 @@
     ---
     http://stackoverflow.com/a/839931/6512315
 
-    cX            num         X origin coordinate at centre of circle
-    cY            num         Y origin coordinate at centre of circle
-    cR            num         Radius of the circle from it's origin
-    a             rad/deg     Angle to rotate by, positive for clockwise, negative for A.C.
+    cX            Number        X origin coordinate at centre of circle
+    cY            Number        Y origin coordinate at centre of circle
+    cR            Number        Radius of the circle from it's origin
+    a             Number        Angle to rotate by, positive for clockwise, negative for A.C.
 
-    inDegrees     bool        optional - Flag whether angle is passed in as degrees
+    inDegrees     Boolean       Optional - Flag whether angle is passed in as degrees
+
+    ---
+    Returns       Object        Object containing point's X and Y coordinates
 
 */
 
@@ -21,7 +24,7 @@ export default function (
 ) {
 
     // Convert to radians if flagged as degrees
-    if ( inDegrees === true ) { a = ( Math.PI / 180 ) * a; }
+    if ( inDegrees ) { a *= Math.PI / 180; }
 
     var x = cX + cR * Math.cos( a );
     var y = cY + cR * Math.sin( a );

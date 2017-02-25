@@ -4,8 +4,11 @@
     ---
     https://github.com/substack/point-in-polygon
 
-    point       arr     Array with coordinates of the point as [ x, y ]
-    polygon     arr     Array of point arrays that form the polygon
+    point       Array       Array with coordinates of the point as [ x, y ]
+    polygon     Array       Array of point arrays that form the polygon
+
+    ---
+    Returns     Boolean     Flag whether point is inside polygon
 
 */
 

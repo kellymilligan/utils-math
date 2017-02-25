@@ -3,14 +3,14 @@
     By default assumes a unit sphere with it's origin at [0, 0, 0].
     ---
 
-    r          Num     Radius of the sphere,
+    r          Number     Radius of the sphere,
 
-    oX         Num     Optional - X coordinate of the sphere's origin
-    oY         Num     Optional - Y coordinate of the sphere's origin
-    oZ         Num     Optional - Z coordinate of the sphere's origin
+    oX         Number     Optional - X coordinate of the sphere's origin
+    oY         Number     Optional - Y coordinate of the sphere's origin
+    oZ         Number     Optional - Z coordinate of the sphere's origin
 
     --
-    Returns    Arr     An array with the point's [x, y, z] coordinates
+    Returns    Array     An array with the point's [x, y, z] coordinates
 
 */
 

@@ -1,20 +1,21 @@
-define( function () {
+/*
+    Return the number with the highest magnitude, regardless of sign
+    ---
+    TODO: Add ability to pass in multiple numbers, like with Math.max()
 
-    'use strict';
+    valA      Number      First value to compare
+    valB      Number      Second value to compare
 
-    /*
-        Return the number with the highest magnitude, regardless of sign
-        ---
-        TODO: Add ability to pass in multiple numbers, like with Math.max()
+    ---
+    Returns   Number      The highest number
 
-        valA      Num      First value to compare
-        valB      Num      Second value to compare
+*/
 
-    */
+export default function (
 
-    return function (valA, valB) {
+    valA, valB
 
-        return Math.abs( valA ) >= Math.abs( valB ) ? valA : valB;
-    };
+) {
 
-});
+    return Math.abs( valA ) >= Math.abs( valB ) ? valA : valB;
+};

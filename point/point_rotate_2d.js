@@ -1,34 +1,34 @@
-define( function () {
+/*
+    Simple mathematical 2D point rotation in cartesian coordinate space
+    ---
+    Source: http://stackoverflow.com/a/17411276/6512315
 
-    'use strict';
+    cX            Number         X origin coordinate to rotate around
+    cY            Number         Y origin coordinate to rotate around
+    x             Number         X coordinate to be rotated
+    y             Number         Y coordinate to be rotated
+    a             Number         Angle to rotate by, positive for clockwise, negative for A.C.
 
-    /*
-        Simple mathematical 2D point rotation in cartesian coordinate space
-        ---
-        Source: http://stackoverflow.com/a/17411276/6512315
+    inDegrees     Boolean        Optional - Flag whether angle is passed in as degrees
 
-        cX            num         X origin coordinate to rotate around
-        cY            num         Y origin coordinate to rotate around
-        x             num         X coordinate to be rotated
-        y             num         Y coordinate to be rotated
-        a             rad/deg     Angle to rotate by, positive for clockwise, negative for A.C.
+    --
+    Returns       Object         New x and y coordinates
 
-        inDegrees     bool        optional - Flag whether angle is passed in as degrees
+*/
 
-        --
-        Returns       obj         new x and y coordinates
+export default function (
 
-    */
+    cX, cY, x, y, a,
 
-    return function (cX, cY, x, y, a, inDegrees) {
+    inDegrees = false;
 
-        // Convert to radians if flagged as degrees
-        a = inDegrees === true ? a * ( Math.PI / 180 ) : a;
+) {
 
-        var nX = ( Math.cos( a ) * ( x - cX ) ) + ( Math.sin( a ) * ( y - cY ) ) + cX;
-        var nY = ( Math.cos( a ) * ( y - cY ) ) - ( Math.sin( a ) * ( x - cX ) ) + cY;
+    // Convert to radians if flagged as degrees
+    if ( inDegrees ) { a *= Math.PI / 180 };
 
-        return { x: nX, y: nY };
-    };
+    let nX = ( Math.cos( a ) * ( x - cX ) ) + ( Math.sin( a ) * ( y - cY ) ) + cX;
+    let nY = ( Math.cos( a ) * ( y - cY ) ) - ( Math.sin( a ) * ( x - cX ) ) + cY;
 
-});
+    return { x: nX, y: nY };
+}

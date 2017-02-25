@@ -3,14 +3,17 @@
     By default assumes a unit sphere with it's origin at [0, 0, 0].
     ---
 
-    pX       Num     X coordinate of the point
-    pY       Num     Y coordinate of the point
-    pZ       Num     Z coordinate of the point
+    pX        Number      X coordinate of the point
+    pY        Number      Y coordinate of the point
+    pZ        Number      Z coordinate of the point
 
-    r        Num     Optional - Radius of the sphere
-    oX       Num     Optional - X coordinate of the sphere's origin
-    oY       Num     Optional - Y coordinate of the sphere's origin
-    oZ       Num     Optional - Z coordinate of the sphere's origin
+    r         Number      Optional - Radius of the sphere
+    oX        Number      Optional - X coordinate of the sphere's origin
+    oY        Number      Optional - Y coordinate of the sphere's origin
+    oZ        Number      Optional - Z coordinate of the sphere's origin
+
+    ---
+    Returns   Boolean     Flag whether point is within sphere
 
 */
 

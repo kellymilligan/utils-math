@@ -1,5 +1,9 @@
 /*
     Return a random unit signed value ( -1 or +1 )
+    ---
+
+    ---
+    Returns      Number      Unit value
 
 */
 
