@@ -14,6 +14,24 @@
     - Tween can be stopped early by calling the 'kill' function
     - For garbage collection, remove reference to the class instance in the onCompleteCallback handler
 
+    Example usage:
+
+    let tween = new Tween(
+        1000,
+        'easeInOutCubic',
+        function (value, progress) {
+
+            console.log( value, progress );
+        },
+        function () {
+
+            console.log( 'complete!' );
+            tween = null;
+        }
+    );
+
+    tween.start();
+
 */
 
 import * as EasingFunctions from './easing.js';
