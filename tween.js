@@ -14,24 +14,6 @@
     - Tween can be stopped early by calling the 'kill' function
     - For garbage collection, remove reference to the class instance in the onCompleteCallback handler
 
-    Example usage:
-
-    let tween = new Tween(
-        1000,
-        'easeInOutCubic',
-        function (value, progress) {
-
-            console.log( value, progress );
-        },
-        function () {
-
-            console.log( 'complete!' );
-            tween = null;
-        }
-    );
-
-    tween.start();
-
 */
 
 import * as EasingFunctions from './easing.js';
@@ -50,11 +32,13 @@ export default class {
         this.progress = 0;
         this.value = 0;
         this.running = false;
+
+        this._tick = this._tick.bind( this );
     }
 
     _tick() {
 
-        // Check if tween as been killed
+        // Check if tween has been killed
         if ( !this.running ) {
 
             this._destroy();
@@ -81,7 +65,7 @@ export default class {
 
         this._onTick( Math.min( this.value, 1 ), Math.min( this.progress, 1 ) );
 
-        this.animationFrame = requestAnimationFrame( this._tick.bind( this ) );
+        this.animationFrame = requestAnimationFrame( this._tick );
     }
 
     _start() {
@@ -91,7 +75,7 @@ export default class {
         this.startTime = Date.now();
         this.currentTime = this.startTime;
 
-        this.animationFrame = requestAnimationFrame( this._tick.bind( this ) );
+        this.animationFrame = requestAnimationFrame( this._tick );
     }
 
     _kill() {
