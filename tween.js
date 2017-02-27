@@ -49,8 +49,6 @@ export default class {
         this.progress = 0;
         this.value = 0;
         this.running = false;
-
-        this._tick = this._tick.bind( this );
     }
 
     _tick() {
@@ -82,7 +80,7 @@ export default class {
 
         this._onTick( Math.min( this.value, 1 ), Math.min( this.progress, 1 ) );
 
-        this.animationFrame = requestAnimationFrame( this._tick );
+        this.animationFrame = requestAnimationFrame( () => this._tick() );
     }
 
     _start() {
@@ -92,7 +90,7 @@ export default class {
         this.startTime = Date.now();
         this.currentTime = this.startTime;
 
-        this.animationFrame = requestAnimationFrame( this._tick );
+        this.animationFrame = requestAnimationFrame( () => this._tick() );
     }
 
     _kill() {
