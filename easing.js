@@ -2,129 +2,136 @@
     Penner's easing equations ported to accept a single normalised progress value
     ---
 
-    ratio      Number      Normalised progress value (from 0-1)
+    a          Number      Normalised progress 'alpha' value (from 0-1)
 
     ---
     Returns    Number      Normalised value with easing applied
 
 */
 
+// Linear
+
+export function linear(a) {
+
+    return a;
+}
+
 // Sine
 
-export function easeInSine(ratio) {
+export function easeInSine(a) {
 
-    return -1 * Math.cos( ratio * ( Math.PI / 2 ) ) + 1;
+    return -1 * Math.cos( a * ( Math.PI / 2 ) ) + 1;
 }
 
-export function easeOutSine(ratio) {
+export function easeOutSine(a) {
 
-    return 1 * Math.sin( ratio * ( Math.PI / 2 ) );
+    return 1 * Math.sin( a * ( Math.PI / 2 ) );
 }
 
-export function easeInOutSine(ratio) {
+export function easeInOutSine(a) {
 
-    return -1 / 2 * ( Math.cos( Math.PI * ratio / 1 ) - 1 );
+    return -1 / 2 * ( Math.cos( Math.PI * a / 1 ) - 1 );
 }
 
 // Quad
 
-export function easeInQuad(ratio) {
+export function easeInQuad(a) {
 
-    return ratio * ratio;
+    return a * a;
 }
 
-export function easeOutQuad(ratio) {
+export function easeOutQuad(a) {
 
-    return -1 * ratio * ( ratio - 2 );
+    return -1 * a * ( a - 2 );
 }
 
-export function easeInOutQuad(ratio) {
+export function easeInOutQuad(a) {
 
-    ratio /= 1 / 2;
-    if ( ratio < 1 ) return 1 / 2 * ratio * ratio;
-    ratio--;
-    return -1 / 2 * ( ratio * ( ratio - 2 ) - 1 );
+    a /= 1 / 2;
+    if ( a < 1 ) return 1 / 2 * a * a;
+    a--;
+    return -1 / 2 * ( a * ( a - 2 ) - 1 );
 }
 
 // Cubic
 
-export function easeInCubic(ratio) {
+export function easeInCubic(a) {
 
-    return ratio * ratio * ratio;
+    return a * a * a;
 }
 
-export function easeOutCubic(ratio) {
+export function easeOutCubic(a) {
 
-    ratio--;
-    return ( ratio * ratio * ratio + 1 );
+    a--;
+    return ( a * a * a + 1 );
 }
 
-export function easeInOutCubic(ratio) {
+export function easeInOutCubic(a) {
 
-    ratio /= 1 / 2;
-    if ( ratio < 1 ) return 1 / 2 * ratio * ratio * ratio;
-    ratio -= 2;
-    return 1 / 2 * ( ratio * ratio * ratio + 2 );
+    a /= 1 / 2;
+    if ( a < 1 ) return 1 / 2 * a * a * a;
+    a -= 2;
+    return 1 / 2 * ( a * a * a + 2 );
 }
 
 // Quart
 
-export function easeInQuart(ratio) {
+export function easeInQuart(a) {
 
-    return ratio * ratio * ratio * ratio;
+    return a * a * a * a;
 }
 
-export function easeOutQuart(ratio) {
+export function easeOutQuart(a) {
 
-    ratio--;
-    return -1 * ( ratio * ratio * ratio * ratio - 1);
+    a--;
+    return -1 * ( a * a * a * a - 1);
 }
 
-export function easeInOutQuart(ratio) {
+export function easeInOutQuart(a) {
 
-    ratio /= 1 / 2;
-    if ( ratio < 1 ) return 1 / 2 * ratio * ratio * ratio * ratio;
-    ratio -= 2;
-    return -1 / 2 * ( ratio * ratio * ratio * ratio - 2 );
+    a /= 1 / 2;
+    if ( a < 1 ) return 1 / 2 * a * a * a * a;
+    a -= 2;
+    return -1 / 2 * ( a * a * a * a - 2 );
 }
 
 // Quint
 
-export function easeInQuint(ratio) {
+export function easeInQuint(a) {
 
-    return ratio * ratio * ratio * ratio * ratio;
+    return a * a * a * a * a;
 }
 
-export function easeOutQuint(ratio) {
+export function easeOutQuint(a) {
 
-    ratio--;
-    return ratio * ratio * ratio * ratio * ratio + 1;
+    a--;
+    return a * a * a * a * a + 1;
 }
 
-export function easeInOutQuint(ratio) {
+export function easeInOutQuint(a) {
 
-    ratio /= 1 / 2;
-    if ( ratio < 1 ) return 1 / 2 * ratio * ratio * ratio * ratio * ratio;
-    ratio -= 2;
-    return 1 / 2 * ( ratio * ratio * ratio * ratio * ratio + 2 );
+    a /= 1 / 2;
+    if ( a < 1 ) return 1 / 2 * a * a * a * a * a;
+    a -= 2;
+    return 1 / 2 * ( a * a * a * a * a + 2 );
 }
 
 // Expo
 
-export function easeInExpo(ratio) {
+export function easeInExpo(a) {
 
-    return Math.pow( 2, 10 * ( ratio - 1 ) );
+    return Math.pow( 2, 10 * ( a - 1 ) );
 }
 
-export function easeOutExpo(ratio) {
+export function easeOutExpo(a) {
 
-    return -Math.pow( 2, -10 * ratio ) + 1;
+    return -Math.pow( 2, -10 * a ) + 1;
 }
 
-export function easeInOutExpo (ratio) {
+export function easeInOutExpo (a) {
 
-    ratio /= 1 / 2;
-    if ( ratio < 1 ) return 1 / 2 * Math.pow( 2, 10 * ( ratio - 1 ) );
-    ratio--;
-    return 1 / 2 * ( -Math.pow( 2, -10 * ratio ) + 2 );
+    a /= 1 / 2;
+    if ( a < 1 ) return 1 / 2 * Math.pow( 2, 10 * ( a - 1 ) );
+    a--;
+    return 1 / 2 * ( -Math.pow( 2, -10 * a ) + 2 );
 }
