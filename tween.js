@@ -39,16 +39,25 @@ const requestAnimationFrame = window.requestAnimationFrame || window.mozRequestA
 
 export default class {
 
-    constructor(duration, easing, onTickCallback, onCompleteCallback) {
+    constructor(
 
-        this.duration = duration || 1000;
-        this.easing = easing || 'easeInOutSine';
-        this._onTick = onTickCallback || function () {};
-        this._onComplete = onCompleteCallback || function () {};
+        duration = 1000,
+        easing = 'easeInOutSine',
+        onTickCallback = function () {},
+        onCompleteCallback = function () {}
+
+    ) {
+
+        this.duration = duration;
+        this.easing = easing;
+        this._onTick = onTickCallback;
+        this._onComplete = onCompleteCallback;
 
         this.progress = 0;
         this.value = 0;
         this.running = false;
+
+        this.startTimer = null;
     }
 
     _tick() {
@@ -95,6 +104,7 @@ export default class {
 
     _kill() {
 
+        clearTimeout( this.startTimer );
         this.running = false;
     }
 
@@ -111,11 +121,14 @@ export default class {
         this._onTick = null;
         this._onComplete = null;
         this.animationFrame = null;
+        clearTimeout( this.startTimer );
+        this.startTimer = null;
     }
 
-    start() {
+    start(delay = 0) {
 
-        this._start();
+        clearTimeout( this.startTimer );
+        this.startTimer = _.delay( this._start.bind( this ), delay );
     }
 
     kill() {
