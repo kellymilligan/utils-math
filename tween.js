@@ -17,16 +17,11 @@
 
     Example usage:
 
-    let tween = new Tween( 1000, 'easeInOutCubic',
-        function (value, progress) {
-
-            console.log( value, progress );
-        },
-        function () {
-
-            console.log( 'complete!' );
-            tween = null;
-        }
+    let tween = new Tween(
+        1000,
+        'easeInOutCubic',
+        (value, progress) => { console.log( value, progress ); },
+        () => { tween = null; }
     );
 
     tween.start();
