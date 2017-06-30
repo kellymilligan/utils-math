@@ -123,7 +123,7 @@ export default class {
     start(delay = 0) {
 
         clearTimeout( this.startTimer );
-        this.startTimer = _.delay( this._start.bind( this ), delay );
+        this.startTimer = setTimeout( () => this._start(), delay );
     }
 
     kill() {
