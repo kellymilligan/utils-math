@@ -1,8 +1,8 @@
 /*
-    Penner's easing equations ported to accept a single normalised progress value
+    Penner's easing equations adapted to accept a single normalised progress value
     ---
 
-    a          Number      Normalised progress 'alpha' value (from 0-1)
+    a          Number      'alpha' value (from 0-1)
 
     ---
     Returns    Number      Normalised value with easing applied
@@ -30,7 +30,7 @@ export function easeOutSine(a) {
 
 export function easeInOutSine(a) {
 
-    return -1 / 2 * ( Math.cos( Math.PI * a / 1 ) - 1 );
+    return -0.5 * ( Math.cos( Math.PI * a / 1 ) - 1 );
 }
 
 // Quad
@@ -47,10 +47,10 @@ export function easeOutQuad(a) {
 
 export function easeInOutQuad(a) {
 
-    a /= 1 / 2;
-    if ( a < 1 ) return 1 / 2 * a * a;
+    a /= 0.5;
+    if ( a < 1 ) return 0.5 * a * a;
     a--;
-    return -1 / 2 * ( a * ( a - 2 ) - 1 );
+    return -0.5 * ( a * ( a - 2 ) - 1 );
 }
 
 // Cubic
@@ -68,10 +68,10 @@ export function easeOutCubic(a) {
 
 export function easeInOutCubic(a) {
 
-    a /= 1 / 2;
-    if ( a < 1 ) return 1 / 2 * a * a * a;
+    a /= 0.5;
+    if ( a < 1 ) return 0.5 * a * a * a;
     a -= 2;
-    return 1 / 2 * ( a * a * a + 2 );
+    return 0.5 * ( a * a * a + 2 );
 }
 
 // Quart
@@ -84,15 +84,15 @@ export function easeInQuart(a) {
 export function easeOutQuart(a) {
 
     a--;
-    return -1 * ( a * a * a * a - 1);
+    return -1 * ( a * a * a * a - 1 );
 }
 
 export function easeInOutQuart(a) {
 
-    a /= 1 / 2;
-    if ( a < 1 ) return 1 / 2 * a * a * a * a;
+    a /= 0.5;
+    if ( a < 1 ) return 0.5 * a * a * a * a;
     a -= 2;
-    return -1 / 2 * ( a * a * a * a - 2 );
+    return -0.5 * ( a * a * a * a - 2 );
 }
 
 // Quint
@@ -110,10 +110,10 @@ export function easeOutQuint(a) {
 
 export function easeInOutQuint(a) {
 
-    a /= 1 / 2;
-    if ( a < 1 ) return 1 / 2 * a * a * a * a * a;
+    a /= 0.5;
+    if ( a < 1 ) return 0.5 * a * a * a * a * a;
     a -= 2;
-    return 1 / 2 * ( a * a * a * a * a + 2 );
+    return 0.5 * ( a * a * a * a * a + 2 );
 }
 
 // Expo
@@ -130,8 +130,8 @@ export function easeOutExpo(a) {
 
 export function easeInOutExpo (a) {
 
-    a /= 1 / 2;
-    if ( a < 1 ) return 1 / 2 * Math.pow( 2, 10 * ( a - 1 ) );
+    a /= 0.5;
+    if ( a < 1 ) return 0.5 * Math.pow( 2, 10 * ( a - 1 ) );
     a--;
-    return 1 / 2 * ( -Math.pow( 2, -10 * a ) + 2 );
+    return 0.5 * ( -Math.pow( 2, -10 * a ) + 2 );
 }
