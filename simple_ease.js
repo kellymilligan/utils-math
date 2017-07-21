@@ -24,5 +24,5 @@ export default function (
 
     if ( reduce && Math.abs( target - current ) < 0.0002 ) { return target; }
 
-    return current + ( target - current ) * ease_factor;;
+    return current + ( target - current ) * ease_factor;
 }
