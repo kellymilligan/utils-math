@@ -1,33 +1,37 @@
 /*
     Get the X and Y position of a point on a circle at supplied angle
+    Defaults to a unit circle (radius = 1) with a center origin (0, 0)
     ---
     http://stackoverflow.com/a/839931/6512315
 
-    cX            Number        X origin coordinate at centre of circle
-    cY            Number        Y origin coordinate at centre of circle
-    cR            Number        Radius of the circle from it's origin
-    a             Number        Angle to rotate by, positive for clockwise, negative for A.C.
+    theta       Number      Angle around circle to calculate the point at
+    x           Number      X position at circle centre
+    y           Number      Y position at circle centre
+    radius      Number      Radius of the circle
 
-    inDegrees     Boolean       Optional - Flag whether angle is passed in as degrees
+    deg         Boolean     Optional - Flag whether angle is in degrees
 
     ---
-    Returns       Object        Object containing point's X and Y coordinates
+    Returns     Object      Calculated point's coordinate pair
 
 */
 
 export default function (
 
-    cX, cY, cR, a,
+    theta,
+    x = 0,
+    y = 0,
+    radius = 1,
 
-    inDegrees = false
+    deg = false
 
 ) {
 
     // Convert to radians if flagged as degrees
-    if ( inDegrees ) { a *= Math.PI / 180; }
+    theta = deg ? theta * ( Math.PI / 180 ) : theta;
 
-    var x = cX + cR * Math.cos( a );
-    var y = cY + cR * Math.sin( a );
-
-    return { x: x, y: y };
+    return {
+        x: x + radius * Math.cos( theta ),
+        y: y + radius * Math.sin( theta )
+    };
 }
