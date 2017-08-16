@@ -2,28 +2,28 @@
     Calculate distance between two 3D points
     ---
 
-    pX1        Number       X coordinate of first point
-    pY1        Number       Y coordinate of first point
-    pZ1        Number       Z coordinate of first point
+    p1_x        Number      X coordinate of first point
+    p1_y        Number      Y coordinate of first point
+    p1_z        Number      Z coordinate of first point
 
-    pX2        Number       X coordinate of second point
-    pY2        Number       Y coordinate of second point
-    pZ2        Number       Z coordinate of second point
+    p2_x        Number      X coordinate of second point
+    p2_y        Number      Y coordinate of second point
+    p2_z        Number      Z coordinate of second point
 
     ---
-    Returns    Number       Distance between the points
+    Returns     Number      Distance between the points
 
 */
 
 export default function (
 
-    pX1, pY1, pZ1, pX2, pY2, pZ2
+    p1_x, p1_y, p1_z, p2_x, p2_y, p2_z
 
 ) {
 
-    const dx = pX2 - pX1;
-    const dy = pY2 - pY1;
-    const dz = pZ2 - pZ1;
+    const dx = p2_x - p1_x;
+    const dy = p2_y - p1_y;
+    const dz = p2_z - p1_z;
 
     return Math.sqrt( dx * dx + dy * dy + dz * dz );
 }

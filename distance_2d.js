@@ -2,25 +2,25 @@
     Calculate distance between two 2D points
     ---
 
-    pX1        Number       X coordinate of first point
-    pY1        Number       Y coordinate of first point
+    p1_x        Number      X coordinate of first point
+    p1_y        Number      Y coordinate of first point
 
-    pX2        Number       X coordinate of second point
-    pY2        Number       Y coordinate of second point
+    p2_x        Number      X coordinate of second point
+    p2_y        Number      Y coordinate of second point
 
     ---
-    Returns    Number       Distance between points
+    Returns     Number      Distance between points
 
 */
 
 export default function (
 
-    pX1, pY1, pX2, pY2
+    p1_x, p1_y, p2_x, p2_y
 
 ) {
 
-    const dx = pX2 - pX1;
-    const dy = pY2 - pY1;
+    const dx = p2_x - p1_x;
+    const dy = p2_y - p1_y;
 
     return Math.sqrt( dx * dx + dy * dy );
 }
