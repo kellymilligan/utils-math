@@ -5,7 +5,7 @@
     a          Number      First value
     b          Number      Second value
 
-    p          Number      Normalised progress value (from 0-1)
+    alpha      Number      Normalised progress value (from 0-1)
 
     ---
     Returns    Number      Interpolated value
@@ -16,9 +16,9 @@ export default function (
 
     a, b,
 
-    p = 0.5 // Default to half way between values
+    alpha = 0.5 // Default to half way between values
 
 ) {
 
-    return a + p * ( b - a );
+    return a + alpha * ( b - a );
 }

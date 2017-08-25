@@ -8,7 +8,7 @@
     alpha      Number      Normalised progress value (from 0-1)
 
     ---
-    Returns    Object      point object of x, y, and z coordinates at position (p)
+    Returns    Object      point object of x, y, and z coordinates at alpha position
 
 */
 
