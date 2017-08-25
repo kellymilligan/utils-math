@@ -5,7 +5,7 @@
     a          Object      First point object containing x, y, and z coordinates
     b          Object      Second point object containing x, y, and z coordinates
 
-    p          Number      Normalised progress value (from 0-1)
+    alpha      Number      Normalised progress value (from 0-1)
 
     ---
     Returns    Object      point object of x, y, and z coordinates at position (p)
@@ -16,13 +16,13 @@ export default function (
 
     a, b,
 
-    p = 0.5 // default to half way between points
+    alpha = 0.5 // default to half way between points
 
 ) {
 
-    var x = a.x + p * ( b.x - a.x );
-    var y = a.y + p * ( b.y - a.y );
-    var z = a.z + p * ( b.z - a.z );
+    var x = a.x + alpha * ( b.x - a.x );
+    var y = a.y + alpha * ( b.y - a.y );
+    var z = a.z + alpha * ( b.z - a.z );
 
     return { x: x, y: y, z: z };
 }
