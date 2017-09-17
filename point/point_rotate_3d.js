@@ -4,7 +4,7 @@
     ---
     Source: http://stackoverflow.com/a/34060479/6512315
 
-    x             Object       Object containing x, y and z coordinates of the point
+    point         Object       Object containing x, y and z coordinates of the point
     aX            Number       Angle of rotation on X axis
     aY            Number       Angle of rotation on y axis
     aZ            Number       Angle of rotation on Z axis
