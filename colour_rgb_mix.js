@@ -1,32 +1,25 @@
 /*
-
-    Mix RGB colour 2 into RGB colour 1 based on normalised mix amount
+    Mix two RGB colour vectors together
     ---
 
-    value        Number      normalised amount of mix bias
-
-    r1           Number      Red value of first colour (0-255)
-    g1           Number      Green value of first colour (0-255)
-    b1           Number      Blue value of first colour (0-255)
-
-    r2           Number      Red value of second colour (0-255)
-    g2           Number      Green value of second colour (0-255)
-    b2           Number      Blue value of second colour (0-255)
+    source      Object      RGB colour vector (100% at alpha = 0)
+    dest        Object      RGB colour vector (100% at alpha = 1)
+    alpha       Number      normalized mix proportion (0-1)
 
     --
-    Returns      Array       Array containing new 0-255 R, G and B colour values
+    Returns     Object      Mixed RGB colour vector
 
 */
 
 export default function (
 
-    value, r1, g1, b1, r2, g2, b2
+    source, dest, alpha = 0.5
 
 ) {
 
-    var r = parseInt( r2 * value + r1 * ( 1 - value ), 10 );
-    var g = parseInt( g2 * value + g1 * ( 1 - value ), 10 );
-    var b = parseInt( b2 * value + b1 * ( 1 - value ), 10 );
+    let r = Math.floor( dest.r * alpha + source.r * ( 1 - alpha ) );
+    let g = Math.floor( dest.g * alpha + source.g * ( 1 - alpha ) );
+    let b = Math.floor( dest.b * alpha + source.b * ( 1 - alpha ) );
 
-    return [ r, g, b ];
+    return { r: r, g: g, b: b };
 }
