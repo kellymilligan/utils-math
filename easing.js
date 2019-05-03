@@ -1,137 +1,141 @@
 /*
-    Penner's easing equations adapted to accept a single normalised progress value
+    Penner's easing equations adapted to accept a single normalised alpha value
     ---
-
     a          Number      'alpha' value (from 0-1)
-
     ---
     Returns    Number      Normalised value with easing applied
-
 */
 
 // Linear
+// ------
 
-export function linear(a) {
+export function linear ( a ) {
 
-    return a;
-}
+    return a
+  }
 
-// Sine
+  // Sine
+  // ----
 
-export function easeInSine(a) {
+  export function easeInSine ( a ) {
 
-    return -1 * Math.cos( a * ( Math.PI / 2 ) ) + 1;
-}
+    return -1 * Math.cos( a * ( Math.PI / 2 ) ) + 1
+  }
 
-export function easeOutSine(a) {
+  export function easeOutSine ( a ) {
 
-    return 1 * Math.sin( a * ( Math.PI / 2 ) );
-}
+    return 1 * Math.sin( a * ( Math.PI / 2 ) )
+  }
 
-export function easeInOutSine(a) {
+  export function easeInOutSine ( a ) {
 
-    return -0.5 * ( Math.cos( Math.PI * a / 1 ) - 1 );
-}
+    return -0.5 * ( Math.cos( Math.PI * a / 1 ) - 1 )
+  }
 
-// Quad
+  // Quad
+  // ----
 
-export function easeInQuad(a) {
+  export function easeInQuad ( a ) {
 
-    return a * a;
-}
+    return a * a
+  }
 
-export function easeOutQuad(a) {
+  export function easeOutQuad ( a ) {
 
-    return -1 * a * ( a - 2 );
-}
+    return -1 * a * ( a - 2 )
+  }
 
-export function easeInOutQuad(a) {
+  export function easeInOutQuad ( a ) {
 
-    a /= 0.5;
-    if ( a < 1 ) return 0.5 * a * a;
-    a--;
-    return -0.5 * ( a * ( a - 2 ) - 1 );
-}
+    a /= 0.5
+    if ( a < 1 ) return 0.5 * a * a
+    a--
+    return -0.5 * ( a * ( a - 2 ) - 1 )
+  }
 
-// Cubic
+  // Cubic
+  // -----
 
-export function easeInCubic(a) {
+  export function easeInCubic ( a ) {
 
-    return a * a * a;
-}
+    return a * a * a
+  }
 
-export function easeOutCubic(a) {
+  export function easeOutCubic ( a ) {
 
-    a--;
-    return ( a * a * a + 1 );
-}
+    a--
+    return ( a * a * a + 1 )
+  }
 
-export function easeInOutCubic(a) {
+  export function easeInOutCubic ( a ) {
 
-    a /= 0.5;
-    if ( a < 1 ) return 0.5 * a * a * a;
-    a -= 2;
-    return 0.5 * ( a * a * a + 2 );
-}
+    a /= 0.5
+    if ( a < 1 ) return 0.5 * a * a * a
+    a -= 2
+    return 0.5 * ( a * a * a + 2 )
+  }
 
-// Quart
+  // Quart
+  // -----
 
-export function easeInQuart(a) {
+  export function easeInQuart ( a ) {
 
-    return a * a * a * a;
-}
+    return a * a * a * a
+  }
 
-export function easeOutQuart(a) {
+  export function easeOutQuart ( a ) {
 
-    a--;
-    return -1 * ( a * a * a * a - 1 );
-}
+    a--
+    return -1 * ( a * a * a * a - 1 )
+  }
 
-export function easeInOutQuart(a) {
+  export function easeInOutQuart ( a ) {
 
-    a /= 0.5;
-    if ( a < 1 ) return 0.5 * a * a * a * a;
-    a -= 2;
-    return -0.5 * ( a * a * a * a - 2 );
-}
+    a /= 0.5
+    if ( a < 1 ) return 0.5 * a * a * a * a
+    a -= 2
+    return -0.5 * ( a * a * a * a - 2 )
+  }
 
-// Quint
+  // Quint
+  // -----
 
-export function easeInQuint(a) {
+  export function easeInQuint ( a ) {
 
-    return a * a * a * a * a;
-}
+    return a * a * a * a * a
+  }
 
-export function easeOutQuint(a) {
+  export function easeOutQuint ( a ) {
 
-    a--;
-    return a * a * a * a * a + 1;
-}
+    a--
+    return a * a * a * a * a + 1
+  }
 
-export function easeInOutQuint(a) {
+  export function easeInOutQuint ( a ) {
 
-    a /= 0.5;
-    if ( a < 1 ) return 0.5 * a * a * a * a * a;
-    a -= 2;
-    return 0.5 * ( a * a * a * a * a + 2 );
-}
+    a /= 0.5
+    if ( a < 1 ) return 0.5 * a * a * a * a * a
+    a -= 2
+    return 0.5 * ( a * a * a * a * a + 2 )
+  }
 
-// Expo
+  // Expo
+  // ----
 
-export function easeInExpo(a) {
+  export function easeInExpo ( a ) {
 
-    return Math.pow( 2, 10 * ( a - 1 ) );
-}
+    return Math.pow( 2, 10 * ( a - 1 ) )
+  }
 
-export function easeOutExpo(a) {
+  export function easeOutExpo ( a ) {
 
-    return -Math.pow( 2, -10 * a ) + 1;
-}
+    return -Math.pow( 2, -10 * a ) + 1
+  }
 
-export function easeInOutExpo (a) {
+  export function easeInOutExpo  ( a ) {
 
-    a /= 0.5;
-    if ( a < 1 ) return 0.5 * Math.pow( 2, 10 * ( a - 1 ) );
-    a--;
-    return 0.5 * ( -Math.pow( 2, -10 * a ) + 2 );
-}
+    a /= 0.5
+    if ( a < 1 ) return 0.5 * Math.pow( 2, 10 * ( a - 1 ) )
+    a--
+    return 0.5 * ( -Math.pow( 2, -10 * a ) + 2 )
+  }
