@@ -1,67 +1,23 @@
-/*
-    Simple mathmatical 3D rotation in a right-handed coordinate space.
-    Does NOT assume translation, the point is rotated around the space's origin at [0, 0, 0]
-    ---
-    Source: http://stackoverflow.com/a/34060479/6512315
-
-    point         Object       Object containing x, y and z coordinates of the point
-    aX            Number       Angle of rotation on X axis
-    aY            Number       Angle of rotation on y axis
-    aZ            Number       Angle of rotation on Z axis
-
-    inDegrees     Boolean      Optional - Flag whether angle is passed in as degrees
-
-    --
-    Returns       Object       Object containing x, y, and z coordinates after rotation
-*/
-
-return function (
-
-    point,
-
-    aX = 0,
-    aY = 0,
-    aZ = 0,
-
-    inDegrees = false
-
+// http://stackoverflow.com/a/34060479/6512315
+export default function pointRotate3d(
+    x, y, z,
+    thetaX = 0,
+    thetaY = 0,
+    thetaZ = 0
 ) {
+    const thetaXx = Math.cos( thetaZ ) * Math.cos( thetaY )
+    const thetaXy = Math.cos( thetaZ ) * Math.sin( thetaY ) * Math.sin( thetaX ) - Math.sin( thetaZ ) * Math.cos( thetaX )
+    const thetaXz = Math.cos( thetaZ ) * Math.sin( thetaY ) * Math.cos( thetaX ) + Math.sin( thetaZ ) * Math.sin( thetaX )
+    const thetaYx = Math.sin( thetaZ ) * Math.cos( thetaY )
+    const thetaYy = Math.sin( thetaZ ) * Math.sin( thetaY ) * Math.sin( thetaX ) + Math.cos( thetaZ ) * Math.cos( thetaX )
+    const thetaYz = Math.sin( thetaZ ) * Math.sin( thetaY ) * Math.cos( thetaX ) - Math.cos( thetaZ ) * Math.sin( thetaX )
+    const thetaZx = -Math.sin( thetaY )
+    const thetaZy = Math.cos( thetaY ) * Math.sin( thetaX )
+    const thetaZz = Math.cos( thetaY ) * Math.cos( thetaX )
 
-    // Convert to radians if flagged as degrees
-    if ( inDegrees ) {
-
-        let degToRad = Math.PI / 180;
-        aX *= degToRad;
-        aY *= degToRad;
-        aZ *= degToRad;
+    return {
+      x: thetaXx * x + thetaXy * y + thetaXz * z,
+      y: thetaYx * x + thetaYy * y + thetaYz * z,
+      z: thetaZx * x + thetaZy * y + thetaZz * z
     }
-
-    var sinA = Math.sin( aZ );
-    var cosA = Math.cos( aZ );
-
-    var sinB = Math.sin( aY );
-    var cosB = Math.cos( aY );
-
-    var sinC = Math.sin( aX );
-    var cosC = Math.cos( aX );
-
-    // Multiply rotation matrices
-    var aXx = cosA * cosB;
-    var aXy = cosA * sinB * sinC - sinA * cosC;
-    var aXz = cosA * sinB * cosC + sinA * sinC;
-
-    var aYx = sinA * cosB;
-    var aYy = sinA * sinB * sinC + cosA * cosC;
-    var aYz = sinA * sinB * cosC - cosA * sinC;
-
-    var aZx = -sinB;
-    var aZy = cosB * sinC;
-    var aZz = cosB * cosC;
-
-    // Multiply resulting rotation matrix by the point vector
-    var rX = aXx * point.x + aXy * point.y + aXz * point.z;
-    var rY = aYx * point.x + aYy * point.y + aYz * point.z;
-    var rZ = aZx * point.x + aZy * point.y + aZz * point.z;
-
-    return { x: rX, y: rY, z: rZ };
-};
+  }
