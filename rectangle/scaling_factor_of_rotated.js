@@ -9,6 +9,8 @@
     Returns   Number      'k', the scaling factor of the outer bounding rect
 */
 
-export default function scalingFactorOfRotatedRect( width, height, theta ) {
-  return Math.cos( theta ) + ( width / height ) * Math.sin( theta )
+export default function scalingFactorOfRotatedRect(width, height, theta) {
+  return (
+    Math.cos(Math.abs(theta)) + (width / height) * Math.sin(Math.abs(theta))
+  );
 }
