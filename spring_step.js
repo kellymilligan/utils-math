@@ -16,8 +16,9 @@ export const springStep = (
   tension = 0.1
 ) => {
   const PRECISION = 0.0001;
-  const vel = (velocity + (target - current) * tension) * (1 - damping);
-  const result =
-    Math.round((current + vel) * (1 / PRECISION)) / (1 / PRECISION);
-  return { current: result, velocity: vel };
+  const velocityStep =
+    (velocity + (target - current) * tension) * (1 - damping);
+  const currentStep =
+    Math.round((current + velocityStep) * (1 / PRECISION)) / (1 / PRECISION);
+  return { current: currentStep, velocity: velocityStep };
 };
