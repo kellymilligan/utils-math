@@ -13,9 +13,14 @@ function simple() {
 }
 
 // UUID as used in Three.js
-// https://github.com/mrdoob/three.js/blob/dev/src/math/MathUtils.js#L18-L41
+// https://github.com/mrdoob/three.js/blob/dev/src/math/MathUtils.js#L8-L41
+const _lut = [];
+for (let i = 0; i < 256; i++) {
+  _lut[i] = (i < 16 ? "0" : "") + i.toString(16);
+}
+const hasRandomUUID = typeof crypto !== "undefined" && "randomUUID" in crypto;
 function uuid() {
-  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+  if (hasRandomUUID) {
     return crypto.randomUUID().toUpperCase();
   }
   const d0 = (Math.random() * 0xffffffff) | 0;
